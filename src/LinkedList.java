@@ -1,4 +1,3 @@
-import LinkedList.Node;
 
 /**
  * Methods that initialize and operate a linked list datatype.
@@ -98,7 +97,7 @@ public class LinkedList<T> {
 
 
 	private Node last() {
-		return null;
+
 	}
 
 	/**
@@ -118,12 +117,17 @@ public class LinkedList<T> {
 
 	@Override
 	public String toString() {
-		StringBuilder s=new StringBuilder("");
-		Node ptr=_head;
-		while(ptr!=null) {
-			s.append(ptr._data+";");
-			ptr=ptr._next;
+		StringBuilder string = new StringBuilder();
+		Node n = _head._next;
+
+		while (n != _tail) {
+			string.append(n._data);
+			if (n._next != _tail) {
+				string.append(";");
+			}
+			n = n._next;
 		}
-		return s.toString();
+
+		return string.toString();
 	}
 }
