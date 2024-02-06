@@ -87,7 +87,7 @@ public class LinkedList<T> {
 			if (n._next._data.equals(target)) {
 				return n;
 			}
-			n = n.next;
+			n = n._next;
 		}
 		return null;
 	}
@@ -118,6 +118,12 @@ public class LinkedList<T> {
 
 	@Override
 	public String toString() {
-		return "";
+		StringBuilder s=new StringBuilder("");
+		Node ptr=_head;
+		while(ptr!=null) {
+			s.append(ptr._data+";");
+			ptr=ptr._next;
+		}
+		return s.toString();
 	}
 }
