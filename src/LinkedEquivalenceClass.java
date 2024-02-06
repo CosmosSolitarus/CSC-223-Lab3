@@ -11,6 +11,7 @@ public class LinkedEquivalenceClass<T> {
 
 	public LinkedEquivalenceClass(Comparator<T> comp) {
 		_rest=new LinkedList<T>();
+		_comparator=comp;
 	}
 
 	public T canonical() {
@@ -28,7 +29,7 @@ public class LinkedEquivalenceClass<T> {
 	}
 	public void clearNonCanonical() {
 	}
-	
+
 	public int size() {
 		return _rest.size();
 
@@ -48,9 +49,10 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public boolean belongs(T target) {
-		return compare(_canonical, target)==0;
+		return _comparator.compare(_canonical, target)==0;
 
 	}
+
 	public boolean remove(T target) {
 		return _rest.remove(target);
 
