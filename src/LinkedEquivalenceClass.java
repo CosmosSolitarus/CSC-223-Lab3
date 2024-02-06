@@ -1,6 +1,4 @@
 
-import input.components.linkedlist.LinkedList.Node;
-
 public class LinkedEquivalenceClass<T> {
 
 	protected T _canonical;
@@ -65,13 +63,7 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public String toString() {
-		StringBuilder s=new StringBuilder("LinkedList:");
-		Node ptr=_head;
-		while(ptr!=null) {
-			s.append(ptr.data+";");
-			ptr=ptr.next;
-		}
-		return s.toString();
+
 		return null;
 
 	}

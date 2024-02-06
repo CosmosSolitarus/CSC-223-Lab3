@@ -1,5 +1,4 @@
 
-import java.util.Comparator;
 
 public class EquivalenceClasses<T> {
 
