@@ -62,6 +62,7 @@ public class LinkedList<T> {
 
 	/**
 	 * Iterates until the target is reached.
+	 * Returns n.
 	 * @param target
 	 **/
 	public boolean contains(T target) {
@@ -75,13 +76,26 @@ public class LinkedList<T> {
 		return false;
 	}
 
+	/**
+	 * Iterates until the target is the next element, not until it is reached.
+	 * Returns n.
+	 * @param target
+	 **/
 	private Node previous(T target) {
+		Node n = _head;
+		while (n._next != _tail) {
+			if (n._next._data.equals(target)) {
+				return n;
+			}
+			n = n.next;
+		}
 		return null;
 	}
 
 	public boolean remove(T target) {
-		return false;
+
 	}
+
 
 	private Node last() {
 		return null;
@@ -99,7 +113,7 @@ public class LinkedList<T> {
 	}
 
 	public void reverse() {
-		
+
 	}
 
 	@Override
