@@ -1,3 +1,4 @@
+import java.util.Comparator;
 
 public class LinkedEquivalenceClass<T> {
 
@@ -26,8 +27,8 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public void clearNonCanonical() {
-
 	}
+	
 	public int size() {
 		return _rest.size();
 
@@ -47,7 +48,7 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public boolean belongs(T target) {
-		return false;
+		return compare(_canonical, target)==0;
 
 	}
 	public boolean remove(T target) {
@@ -59,12 +60,13 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public boolean demoteAndSetCanonical(T element) {
-		return false;
-
+		_rest.addToBack(_canonical);
+		_canonical=element;
+		_rest.remove(element);
+		return _rest.contains(element)==false;
 	}
 	public String toString() {
-
-		return null;
+		return _rest.toString();
 
 	}
 }
