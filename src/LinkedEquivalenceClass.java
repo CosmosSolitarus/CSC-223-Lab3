@@ -28,6 +28,7 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public void clearNonCanonical() {
+		_rest=new LinkedList<T>();
 	}
 
 	public int size() {
@@ -62,6 +63,11 @@ public class LinkedEquivalenceClass<T> {
 
 	}
 	public boolean demoteAndSetCanonical(T element) {
+		if(_canonical==null) {
+		_canonical=element;
+		_rest.remove(element);
+		return true;
+		}
 		_rest.addToBack(_canonical);
 		_canonical=element;
 		_rest.remove(element);
