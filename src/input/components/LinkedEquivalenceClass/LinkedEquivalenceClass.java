@@ -1,4 +1,7 @@
+package input.components.LinkedEquivalenceClass;
 import java.util.Comparator;
+
+import input.components.LinkedList.LinkedList;
 
 public class LinkedEquivalenceClass<T> {
 

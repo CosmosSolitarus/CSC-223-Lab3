@@ -1,4 +1,8 @@
+package input.components.LinkedList;
 import org.junit.jupiter.api.Test;
+
+import input.components.LinkedList.LinkedList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LinkedListTest {

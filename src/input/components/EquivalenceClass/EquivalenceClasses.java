@@ -1,5 +1,8 @@
+package input.components.EquivalenceClass;
 import java.util.Comparator;
 import java.util.List;
+
+import input.components.LinkedEquivalenceClass.LinkedEquivalenceClass;
 
 public class EquivalenceClasses<T> {
 
@@ -13,6 +16,7 @@ public class EquivalenceClasses<T> {
 	}
 	
 	public boolean add(T element) {
+		return false;
 		// loop through each class in _classes
 		// check if element belongs in class according to _comparator
 		// if yes, add element

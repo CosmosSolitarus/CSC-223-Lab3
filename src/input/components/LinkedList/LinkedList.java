@@ -1,3 +1,4 @@
+package input.components.LinkedList;
 
 /**
  * Methods that initialize and operate a linked list datatype.
@@ -92,11 +93,13 @@ public class LinkedList<T> {
 	}
 
 	public boolean remove(T target) {
+		return false;
 
 	}
 
 
 	private Node last() {
+		return _head;
 
 	}
 
