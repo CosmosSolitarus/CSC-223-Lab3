@@ -13,6 +13,7 @@ public class EquivalenceClasses<T> {
 	}
 	
 	public boolean add(T element) {
+		return false;
 		// loop through each class in _classes
 		// check if element belongs in class according to _comparator
 		// if yes, add element

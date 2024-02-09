@@ -1,6 +1,13 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @date 2/8/2024
+ * @author Case Riddle
+ * @author Sam Nusstein
+ * @author Jack Roberts
+ **/
+
 public class LinkedListTest {
 
 	@Test
@@ -68,10 +75,19 @@ public class LinkedListTest {
 	}
 
 	@Test
-	public void testRemove() {
-		// TODO: Implement test for remove() method
-	}
+    public void testRemove() {
+        LinkedList<String> list = new LinkedList<>();
+        list.addToFront("Case");
+        list.addToFront("Chase");
 
+        assertTrue(list.remove("Case"));
+        assertEquals("Chase", list.toString());
+        assertEquals(1, list.size());
+
+        assertTrue(list.remove("Chase"));
+        assertTrue(list.isEmpty());
+    }
+	
 	@Test
 	public void testAddToBack() {
 		LinkedList<Integer> list = new LinkedList<>();
@@ -84,11 +100,39 @@ public class LinkedListTest {
 
 	@Test
 	public void testReverse() {
-		// TODO: Implement test for reverse() method
+	    LinkedList<Integer> list1 = new LinkedList<Integer>();
+	    list1.addToBack(1);
+	    list1.addToBack(2);
+	    list1.addToBack(3);
+
+	    LinkedList<Integer> list2 = new LinkedList<>();
+	    list2.addToBack(3);
+	    list2.addToBack(2);
+	    list2.addToBack(1);
+
+	    assertEquals(list1.toString(), "1;2;3");
+	    assertEquals(list2.toString(), "3;2;1");
+
+	    list1.reverse();
+
+	    assertEquals(list1.toString(), list2.toString());
+	    
+	    LinkedList<Integer> list3 = new LinkedList<>();
+
+	    assertEquals(list3.toString(), "");
+
+	    list3.reverse();
+
+	    assertEquals(list3.toString(), "");
 	}
 
 	@Test
-	public void testToString() {
-		// TODO: Implement test for toString() method
-	}
+    public void testToString() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.addToBack(1);
+        list.addToBack(2);
+        list.addToBack(3);
+
+        assertEquals("1;2;3", list.toString());
+    }
 }

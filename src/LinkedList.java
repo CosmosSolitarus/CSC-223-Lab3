@@ -1,7 +1,6 @@
-
 /**
  * Methods that initialize and operate a linked list datatype.
- * @date 2/6/2024
+ * @date 2/8/2024
  * @author Case Riddle
  * @author Sam Nusstein
  * @author Jack Roberts
@@ -91,13 +90,34 @@ public class LinkedList<T> {
 		return null;
 	}
 
+	/**
+	 * Removes the node containing the specified target value from the linked list.
+	 * Updates the reference of the previous node to skip the targeted node.
+	 * Decrements size.
+	 * @param target
+	 */
 	public boolean remove(T target) {
+		Node n = previous(target);
+		if (n == null) {
+			return false;
+		}
 
+		n._next = n._next._next;
+		_size--;
+		return true;
 	}
 
-
+	/**
+	 * Obtains the last node in a linked list by iterating from the head.
+	 * Continues until reaches the node just before the tail.
+	 * @return n
+	 **/
 	private Node last() {
-
+		Node n = _head;
+		while (n._next != _tail) {
+			n = n._next;
+		}
+		return n;
 	}
 
 	/**
@@ -105,29 +125,49 @@ public class LinkedList<T> {
 	 * @param element
 	 **/
 	public void addToBack(T element) {
-		Node n = new Node(element, _tail._next);
-		n._next = _tail._next;
-		_tail = n;
-		_size++;
+	    if (!contains(element)) {
+	        last()._next = new Node(element, _tail);
+	        _size++;
+	    }
 	}
-
+	
+	/**
+	 * Recursive method that reverses inputs in a list.
+	 **/
 	public void reverse() {
-
+	    reverseRecursive(_head._next, null);
 	}
 
+	private void reverseRecursive(Node current, Node previous) {
+	    if (current == null) {
+	        _head._next = previous;
+	        return;
+	    }
+
+	    Node nextNode = current._next;
+	    current._next = previous;
+
+	    reverseRecursive(nextNode, current);
+	}
+
+	/**
+	 * Utilizes a public-private paradigm for recursion.
+	 **/
 	@Override
 	public String toString() {
-		StringBuilder string = new StringBuilder();
-		Node n = _head._next;
+		return toStringRecursive(_head._next);
+	}
 
-		while (n != _tail) {
-			string.append(n._data);
-			if (n._next != _tail) {
-				string.append(";");
-			}
-			n = n._next;
+	private String toStringRecursive(Node node) {
+		if (node == _tail) {
+			return "";
 		}
+		String result = node._data.toString();
 
-		return string.toString();
+		if (node._next != _tail) {
+			result += ";";
+		}
+		result += toStringRecursive(node._next);
+		return result;
 	}
 }
