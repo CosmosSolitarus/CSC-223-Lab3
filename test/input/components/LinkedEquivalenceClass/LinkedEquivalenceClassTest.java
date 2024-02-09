@@ -4,6 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Comparator;
 
 import org.junit.jupiter.api.Test;
+/**
+* Associated tests for LinkedEquivalenceClass
+* @date 2/9/2024
+* @author Sam Nusstein
+* @author Case Riddle
+* @author Jack Roberts
+**/
+
 
 class LinkedEquivalenceClassTest {
 
@@ -12,19 +20,6 @@ class LinkedEquivalenceClassTest {
 	{return x%2 == y % 2 ? 0:1;}
 	};
 	
-	@Test
-	void testGeneral() {
-		LinkedEquivalenceClass<Integer> Lec =new LinkedEquivalenceClass<Integer>(comp);
-		assertTrue(Lec.isEmpty());
-
-		assertFalse(Lec.contains(3));
-		for(int i=0; i<7;i++) {
-			Lec.add(i);         
-		}
-		assertTrue(Lec.demoteAndSetCanonical(1));
-		assertEquals(1,Lec.canonical());
-	}
-
 	@Test
 	void canonicalSetandReturnTest() {
 		LinkedEquivalenceClass<Integer> Lec =new LinkedEquivalenceClass<Integer>(comp);
@@ -178,10 +173,10 @@ class LinkedEquivalenceClassTest {
 			Lec.add(i);         
 		}
 		Lec.demoteAndSetCanonical(1);
-		assertEquals("1:6;5;4;3;2;0",Lec.toString());
+		assertEquals("1: 6;5;4;3;2;0",Lec.toString());
 		
 		Lec.demoteAndSetCanonical(2);
-		assertEquals("2:1;6;5;4;3;0",Lec.toString());
+		assertEquals("2: 1;6;5;4;3;0",Lec.toString());
 	}
 }	
 
